@@ -1,16 +1,8 @@
-/* =========================================================
-   Mohammed — Personal Site  |  script.js (Phase 2 Ready)
-   يعمل مع وبدون لوحة التحكم. يجلب التطبيقات من GitHub تلقائيًا.
-   ========================================================= */
-
-/* ============================================================
-   ⚙️  الإعدادات — عدّل هذه القيم الثلاث فقط
-   ============================================================ */
 const CONFIG = {
-  githubRepo:  'YOUR_USERNAME/YOUR_REPO', // مثال: "mohammed/my-site"
-  branch:      'main',
-  appsFolder:  '_data/apps',              // نفس المجلد في admin/config.yml
-  cacheTTL:    5 * 60 * 1000,             // كاش لمدة 5 دقائق (لتجنب حدود GitHub API)
+  githubRepo: 'mbn24/mohammed_dev', 
+  branch: 'main',
+  appsFolder: '_data/apps',              // نفس المجلد في admin/config.yml
+  cacheTTL: 5 * 60 * 1000,             // كاش لمدة 5 دقائق (لتجنب حدود GitHub API)
 };
 
 /* ============================================================
@@ -18,44 +10,44 @@ const CONFIG = {
    ============================================================ */
 const translations = {
   ar: {
-    'nav.about':'عنّي','nav.apps':'تطبيقاتي','nav.contact':'تواصل',
-    'hero.badge':'متاح للعمل الحر','hero.name':'محمد',
-    'hero.role.dev':'مطوّر','hero.role.and':'و','hero.role.des':'مصمم',
-    'hero.tagline':'أصنع تطبيقات وتجارب رقمية أنيقة، تجمع بين البساطة والفخامة.',
-    'hero.cta1':'استكشف أعمالي','hero.cta2':'تواصل معي',
-    'about.label':'ABOUT','about.title':'عنّي',
-    'about.text':'مطوّر ومصمم شغوف، أصنع تطبيقات ويب وتجارب رقمية أنيقة تجمع بين البساطة والوظيفة. أهتم بالتفاصيل وأؤمن أن التصميم الجيد هو ما يجعل التقنية الممتازة تُلمس وتُحس.',
-    'apps.label':'WORK','apps.title':'تطبيقاتي','apps.subtitle':'مختارات من مشاريعي الأخيرة.',
-    'contact.label':'CONTACT','contact.title':'لنعمل معًا',
-    'contact.subtitle':'لديك فكرة؟ دعنا نحوّلها إلى واقع.','contact.email':'أرسل بريدًا',
-    'footer.rights':'جميع الحقوق محفوظة',
-    'type.web':'ويب','type.android':'أندرويد','type.desktop':'سطح المكتب',
-    'action.visit':'زيارة','action.install':'تثبيت','action.download':'تحميل',
-    'marquee.1':'تطوير ويب','marquee.2':'تصميم واجهات','marquee.3':'تجربة مستخدم',
-    'marquee.4':'تطبيقات','marquee.5':'إبداع',
-    'apps.empty.title':'لا توجد تطبيقات بعد',
-    'apps.empty.cta':'أضف أول تطبيق من لوحة التحكم',
-    'apps.error':'تعذّر تحميل التطبيقات. حاول لاحقًا.',
+    'nav.about': 'عنّي', 'nav.apps': 'تطبيقاتي', 'nav.contact': 'تواصل',
+    'hero.badge': 'متاح للعمل الحر', 'hero.name': 'محمد',
+    'hero.role.dev': 'مطوّر', 'hero.role.and': 'و', 'hero.role.des': 'مصمم',
+    'hero.tagline': 'أصنع تطبيقات وتجارب رقمية أنيقة، تجمع بين البساطة والفخامة.',
+    'hero.cta1': 'استكشف أعمالي', 'hero.cta2': 'تواصل معي',
+    'about.label': 'ABOUT', 'about.title': 'عنّي',
+    'about.text': 'مطوّر ومصمم شغوف، أصنع تطبيقات ويب وتجارب رقمية أنيقة تجمع بين البساطة والوظيفة. أهتم بالتفاصيل وأؤمن أن التصميم الجيد هو ما يجعل التقنية الممتازة تُلمس وتُحس.',
+    'apps.label': 'WORK', 'apps.title': 'تطبيقاتي', 'apps.subtitle': 'مختارات من مشاريعي الأخيرة.',
+    'contact.label': 'CONTACT', 'contact.title': 'لنعمل معًا',
+    'contact.subtitle': 'لديك فكرة؟ دعنا نحوّلها إلى واقع.', 'contact.email': 'أرسل بريدًا',
+    'footer.rights': 'جميع الحقوق محفوظة',
+    'type.web': 'ويب', 'type.android': 'أندرويد', 'type.desktop': 'سطح المكتب',
+    'action.visit': 'زيارة', 'action.install': 'تثبيت', 'action.download': 'تحميل',
+    'marquee.1': 'تطوير ويب', 'marquee.2': 'تصميم واجهات', 'marquee.3': 'تجربة مستخدم',
+    'marquee.4': 'تطبيقات', 'marquee.5': 'إبداع',
+    'apps.empty.title': 'لا توجد تطبيقات بعد',
+    'apps.empty.cta': 'أضف أول تطبيق من لوحة التحكم',
+    'apps.error': 'تعذّر تحميل التطبيقات. حاول لاحقًا.',
   },
   en: {
-    'nav.about':'About','nav.apps':'Work','nav.contact':'Contact',
-    'hero.badge':'Available for freelance','hero.name':'Mohammed',
-    'hero.role.dev':'Developer','hero.role.and':'&','hero.role.des':'Designer',
-    'hero.tagline':'Crafting elegant apps and digital experiences where simplicity meets luxury.',
-    'hero.cta1':'Explore my work','hero.cta2':'Get in touch',
-    'about.label':'ABOUT','about.title':'About me',
-    'about.text':'A passionate developer and designer crafting elegant web apps and digital experiences where simplicity meets function. I care about the details and believe great design is what makes excellent technology felt.',
-    'apps.label':'WORK','apps.title':'My apps','apps.subtitle':'A selection of my recent work.',
-    'contact.label':'CONTACT','contact.title':"Let's work together",
-    'contact.subtitle':"Have an idea? Let's bring it to life.",'contact.email':'Send email',
-    'footer.rights':'All rights reserved',
-    'type.web':'Web','type.android':'Android','type.desktop':'Desktop',
-    'action.visit':'Visit','action.install':'Install','action.download':'Download',
-    'marquee.1':'WEB DEV','marquee.2':'UI DESIGN','marquee.3':'UX',
-    'marquee.4':'APPS','marquee.5':'CRAFT',
-    'apps.empty.title':'No apps yet',
-    'apps.empty.cta':'Add your first app from the dashboard',
-    'apps.error':'Could not load apps. Try again later.',
+    'nav.about': 'About', 'nav.apps': 'Work', 'nav.contact': 'Contact',
+    'hero.badge': 'Available for freelance', 'hero.name': 'Mohammed',
+    'hero.role.dev': 'Developer', 'hero.role.and': '&', 'hero.role.des': 'Designer',
+    'hero.tagline': 'Crafting elegant apps and digital experiences where simplicity meets luxury.',
+    'hero.cta1': 'Explore my work', 'hero.cta2': 'Get in touch',
+    'about.label': 'ABOUT', 'about.title': 'About me',
+    'about.text': 'A passionate developer and designer crafting elegant web apps and digital experiences where simplicity meets function. I care about the details and believe great design is what makes excellent technology felt.',
+    'apps.label': 'WORK', 'apps.title': 'My apps', 'apps.subtitle': 'A selection of my recent work.',
+    'contact.label': 'CONTACT', 'contact.title': "Let's work together",
+    'contact.subtitle': "Have an idea? Let's bring it to life.", 'contact.email': 'Send email',
+    'footer.rights': 'All rights reserved',
+    'type.web': 'Web', 'type.android': 'Android', 'type.desktop': 'Desktop',
+    'action.visit': 'Visit', 'action.install': 'Install', 'action.download': 'Download',
+    'marquee.1': 'WEB DEV', 'marquee.2': 'UI DESIGN', 'marquee.3': 'UX',
+    'marquee.4': 'APPS', 'marquee.5': 'CRAFT',
+    'apps.empty.title': 'No apps yet',
+    'apps.empty.cta': 'Add your first app from the dashboard',
+    'apps.error': 'Could not load apps. Try again later.',
   },
 };
 
@@ -63,17 +55,17 @@ const translations = {
    🎨 أيقونات (SVG paths)
    ============================================================ */
 const icons = {
-  web:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
-  android:'<rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>',
-  desktop:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+  web: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  android: '<rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>',
+  desktop: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
 };
 
 /* ============================================================
    🔧 الحالة الداخلية
    ============================================================ */
-let currentLang   = localStorage.getItem('site-lang') || 'ar';
+let currentLang = localStorage.getItem('site-lang') || 'ar';
 let revealObserver;
-let appsCache     = null;
+let appsCache = null;
 let appsCacheTime = 0;
 
 /* ============================================================
@@ -85,7 +77,7 @@ async function applyLanguage(lang) {
 
   const html = document.documentElement;
   html.lang = lang;
-  html.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
   // ترجمة العناصر الثابتة
   document.querySelectorAll('[data-i18n]').forEach((el) => {
@@ -175,14 +167,14 @@ async function fetchApps() {
     const apps = loaded
       .filter(Boolean)
       .map((a) => ({
-        type:    a.type    || 'web',
-        action:  a.action  || 'visit',
-        url:     a.url     || '#',
-        image:   a.image   || null,
+        type: a.type || 'web',
+        action: a.action || 'visit',
+        url: a.url || '#',
+        image: a.image || null,
         titleAr: a.titleAr || a.title || '',
         titleEn: a.titleEn || a.title || '',
-        descAr:  a.descAr  || a.desc  || '',
-        descEn:  a.descEn  || a.desc  || '',
+        descAr: a.descAr || a.desc || '',
+        descEn: a.descEn || a.desc || '',
       }))
       .filter((a) => a.titleAr || a.titleEn); // استبعاد الملفات الفارغة
 
@@ -226,11 +218,11 @@ function renderApps(apps) {
   // عرض البطاقات
   grid.innerHTML = apps
     .map((app, i) => {
-      const title  = currentLang === 'ar' ? app.titleAr : app.titleEn;
-      const desc   = currentLang === 'ar' ? app.descAr  : app.descEn;
-      const typeL  = t[`type.${app.type}`]   || app.type;
-      const actionL= t[`action.${app.action}`] || app.action;
-      const icon   = icons[app.type] || icons.web;
+      const title = currentLang === 'ar' ? app.titleAr : app.titleEn;
+      const desc = currentLang === 'ar' ? app.descAr : app.descEn;
+      const typeL = t[`type.${app.type}`] || app.type;
+      const actionL = t[`action.${app.action}`] || app.action;
+      const icon = icons[app.type] || icons.web;
 
       // نمط Bento متناوب
       let shape = '';
@@ -316,7 +308,7 @@ function renderMarquee() {
   const track = document.getElementById('marqueeTrack');
   if (!track) return;
   const t = translations[currentLang];
-  const items = ['marquee.1','marquee.2','marquee.3','marquee.4','marquee.5'];
+  const items = ['marquee.1', 'marquee.2', 'marquee.3', 'marquee.4', 'marquee.5'];
   const build = () =>
     items.map((k) => `<span class="marquee-item">${t[k]}</span>
       <span class="marquee-sep">◆</span>`).join('');
@@ -347,7 +339,7 @@ function observeReveals() {
    🖱️ المؤشر المخصص
    ============================================================ */
 function initCursor() {
-  const dot  = document.getElementById('cursorDot');
+  const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   if (!dot || !ring) return;
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -385,7 +377,7 @@ function bindCursorHoverTargets() {
    🔦 بقعة الضوء في الـ Hero
    ============================================================ */
 function initSpotlight() {
-  const sp   = document.getElementById('spotlight');
+  const sp = document.getElementById('spotlight');
   const hero = document.getElementById('hero');
   if (!sp || !hero) return;
   hero.addEventListener('mousemove', (e) => {
@@ -407,7 +399,7 @@ function bindMagneticTargets() {
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
       const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top  - r.height / 2;
+      const y = e.clientY - r.top - r.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
     });
     el.addEventListener('mouseleave', () => { el.style.transform = ''; });
@@ -444,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // قائمة الموبايل
-  const menuBtn    = document.getElementById('menuToggle');
+  const menuBtn = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
   mobileMenu?.querySelectorAll('a').forEach((a) =>

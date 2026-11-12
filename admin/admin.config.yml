@@ -1,8 +1,6 @@
 backend:
   name: github
-  repo: YOUR_USERNAME/YOUR_REPO   # ← ضع اسم المستخدم والمستودع هنا
   branch: main
-  base_url: https://YOUR_PROXY_URL   # ← رابط Cloudflare Worker (أو احذفه إذا استخدمت Netlify)
 
 media_folder: "assets/images/uploads"   # أين تُحفظ الصور المرفوعة
 public_folder: "/assets/images/uploads"  # المسار العام للصور
