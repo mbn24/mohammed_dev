@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: YOUR_USERNAME/YOUR_REPO   # ← ضع اسم المستخدم والمستودع هنا
+  branch: main
+  base_url: https://YOUR_PROXY_URL   # ← رابط Cloudflare Worker (أو احذفه إذا استخدمت Netlify)
+
+media_folder: "assets/images/uploads"   # أين تُحفظ الصور المرفوعة
+public_folder: "/assets/images/uploads"  # المسار العام للصور
+
+collections:
+  - name: "apps"
+    label: "التطبيقات"
+    folder: "_data/apps"        # ← هنا تُحفظ ملفات JSON
+    create: true
+    slug: "{{slug}}"
+    format: "json"               # ← مهم: نريد ملفات JSON وليس Markdown
+    fields:
+      - { label: "اسم التطبيق (عربي)", name: "titleAr", widget: "string" }
+      - { label: "اسم التطبيق (إنجليزي)", name: "titleEn", widget: "string" }
+      - { label: "الوصف (عربي)", name: "descAr", widget: "text" }
+      - { label: "الوصف (إنجليزي)", name: "descEn", widget: "text" }
+      - label: "نوع التطبيق"
+        name: "type"
+        widget: "select"
+        options: ["web", "android", "desktop"]
+      - label: "إجراء التثبيت"
+        name: "action"
+        widget: "select"
+        options: ["visit", "install", "download"]
+        default: "visit"
+      - { label: "رابط التحميل/الزيارة", name: "url", widget: "string" }
+      - { label: "صورة التطبيق", name: "image", widget: "image", required: false }
