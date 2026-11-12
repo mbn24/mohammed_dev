@@ -166,3 +166,71 @@ html[dir="rtl"] .marquee-track { animation-direction: reverse; }
   .bento { grid-template-columns: 1fr; }
   .bento-item.span-2 { grid-column: auto; }
 }
+/* =========================================================
+   Modals & Admin UI
+   ========================================================= */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(11, 11, 13, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.modal-overlay:not(.hidden) { opacity: 1; pointer-events: auto; }
+
+.modal-content {
+  background: #15151A;
+  border: 1px solid rgba(201, 169, 97, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%; max-width: 420px;
+  position: relative;
+  transform: translateY(20px); transition: transform 0.3s ease;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.modal-overlay:not(.hidden) .modal-content { transform: translateY(0); }
+
+/* تنسيق مربعات الإدخال لتصبح داكنة */
+.input-style {
+  width: 100%; 
+  background: #1A1A20 !important; /* لون داكن */
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0.5rem; 
+  padding: 0.75rem 1rem;
+  color: #F2EDE4 !important; 
+  font-family: inherit; font-size: 0.95rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.input-style:focus {
+  outline: none; border-color: #C9A961; background: #202028 !important;
+}
+.input-style::placeholder {
+  color: #6e6a63;
+}
+
+/* تنسيق الزر الذهبي */
+.btn-gold {
+  background: #C9A961; color: #0B0B0D; border: none;
+  padding: 0.75rem; border-radius: 0.5rem;
+  font-weight: 600; cursor: pointer; transition: background 0.2s;
+  width: 100%;
+}
+.btn-gold:hover { background: #E8C77B; }
+
+/* إصلاح المؤشر المخصص لكي لا يغطي الأزرار */
+.cursor-dot, .cursor-ring {
+  pointer-events: none !important;
+}
+
+/* Floating Action Button (زر الإضافة العائم) */
+.fab {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 100;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #C9A961; color: #0B0B0D;
+  font-size: 2rem; font-weight: 300;
+  border: none; cursor: pointer;
+  box-shadow: 0 10px 25px rgba(201,169,97,0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+.fab:hover { transform: scale(1.1) rotate(90deg); background: #E8C77B; }
