@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohammed — Developer & Designer</title>
-  <meta name="description" content="Mohammed — Developer & Designer. Crafting elegant apps and digital experiences." />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  
+  <!-- مكتبة Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -40,82 +39,44 @@
         <a href="#contact" data-i18n="nav.contact" class="nav-link text-sm text-cream/70 hover:text-gold transition">تواصل</a>
       </div>
       <div class="flex items-center gap-2">
-        <button id="langToggle" class="px-4 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium hover:bg-gold/10 transition magnetic" aria-label="Switch language">EN</button>
-        <button id="menuToggle" class="md:hidden text-cream p-2" aria-label="Menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-        </button>
+        <!-- زر تسجيل الدخول / الخروج -->
+        <button id="authBtn" class="px-4 py-2 rounded-full border border-white/10 text-cream/70 text-sm font-medium hover:text-gold hover:border-gold/40 transition">دخول</button>
+        <button id="langToggle" class="px-4 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium hover:bg-gold/10 transition magnetic">EN</button>
       </div>
     </nav>
-    <div id="mobileMenu" class="hidden md:hidden border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3">
-        <a href="#about"   data-i18n="nav.about"   class="text-cream/80 hover:text-gold transition py-1">عنّي</a>
-        <a href="#apps"    data-i18n="nav.apps"    class="text-cream/80 hover:text-gold transition py-1">تطبيقاتي</a>
-        <a href="#contact" data-i18n="nav.contact" class="text-cream/80 hover:text-gold transition py-1">تواصل</a>
-      </div>
-    </div>
   </header>
 
   <!-- HERO -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden">
-    <div class="hero-glow"></div>
-    <div class="spotlight" id="spotlight"></div>
-    <div class="bg-grid absolute inset-0 pointer-events-none"></div>
-
+    <div class="hero-glow"></div><div class="spotlight" id="spotlight"></div><div class="bg-grid absolute inset-0 pointer-events-none"></div>
     <div class="relative max-w-4xl mx-auto text-center">
       <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 bg-gold/5 mb-8">
         <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
         <span data-i18n="hero.badge" class="text-sm text-cream/80">متاح للعمل الحر</span>
       </div>
-      <h1 class="reveal font-display text-6xl md:text-8xl font-bold tracking-tight mb-4">
-        <span data-i18n="hero.name" class="text-gold-gradient">محمد</span>
-      </h1>
+      <h1 class="reveal font-display text-6xl md:text-8xl font-bold tracking-tight mb-4"><span data-i18n="hero.name" class="text-gold-gradient">محمد</span></h1>
       <p class="reveal text-2xl md:text-4xl font-light mb-8">
-        <span data-i18n="hero.role.dev">مطوّر</span>
-        <span data-i18n="hero.role.and" class="font-display italic text-gold-gradient mx-2">و</span>
-        <span data-i18n="hero.role.des">مصمم</span>
+        <span data-i18n="hero.role.dev">مطوّر</span><span data-i18n="hero.role.and" class="font-display italic text-gold-gradient mx-2">و</span><span data-i18n="hero.role.des">مصمم</span>
       </p>
-      <p data-i18n="hero.tagline" class="reveal text-muted text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-        أصنع تطبيقات وتجارب رقمية أنيقة، تجمع بين البساطة والفخامة.
-      </p>
-      <div class="reveal flex flex-wrap gap-4 justify-center">
-        <a href="#apps" class="magnetic px-8 py-3.5 bg-gold text-ink rounded-full font-medium hover:bg-goldLight transition shadow-lg shadow-gold/10">
-          <span data-i18n="hero.cta1">استكشف أعمالي</span>
-        </a>
-        <a href="#contact" class="magnetic px-8 py-3.5 border border-gold/40 text-gold rounded-full font-medium hover:bg-gold/10 transition">
-          <span data-i18n="hero.cta2">تواصل معي</span>
-        </a>
-      </div>
+      <p data-i18n="hero.tagline" class="reveal text-muted text-lg max-w-xl mx-auto mb-10 leading-relaxed">أصنع تطبيقات وتجارب رقمية أنيقة، تجمع بين البساطة والفخامة.</p>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="py-32 px-6">
     <div class="max-w-4xl mx-auto">
-      <div class="reveal flex items-center gap-4 mb-10">
-        <span class="text-gold text-sm tracking-[0.3em] font-medium">01</span>
-        <div class="h-px w-16 bg-gold/40"></div>
-        <span class="text-muted text-xs tracking-[0.3em] uppercase" data-i18n="about.label">ABOUT</span>
-      </div>
+      <div class="reveal flex items-center gap-4 mb-10"><span class="text-gold text-sm tracking-[0.3em] font-medium">01</span><div class="h-px w-16 bg-gold/40"></div><span class="text-muted text-xs tracking-[0.3em] uppercase" data-i18n="about.label">ABOUT</span></div>
       <h2 class="reveal font-display text-4xl md:text-5xl font-bold mb-8" data-i18n="about.title">عنّي</h2>
-      <p class="reveal text-lg md:text-xl text-cream/80 leading-relaxed" data-i18n="about.text">
-        مطوّر ومصمم شغوف، أصنع تطبيقات ويب وتجارب رقمية أنيقة تجمع بين البساطة والوظيفة. أهتم بالتفاصيل وأؤمن أن التصميم الجيد هو ما يجعل التقنية الممتازة تُلمس وتُحس.
-      </p>
+      <p class="reveal text-lg md:text-xl text-cream/80 leading-relaxed" data-i18n="about.text">مطوّر ومصمم شغوف...</p>
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee border-y border-white/5 py-6 bg-surface/30" aria-hidden="true">
-    <div class="marquee-track" id="marqueeTrack"></div>
-  </div>
+  <div class="marquee border-y border-white/5 py-6 bg-surface/30" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
 
   <!-- APPS -->
   <section id="apps" class="py-32 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="reveal flex items-center gap-4 mb-10">
-        <span class="text-gold text-sm tracking-[0.3em] font-medium">02</span>
-        <div class="h-px w-16 bg-gold/40"></div>
-        <span class="text-muted text-xs tracking-[0.3em] uppercase" data-i18n="apps.label">WORK</span>
-      </div>
+      <div class="reveal flex items-center gap-4 mb-10"><span class="text-gold text-sm tracking-[0.3em] font-medium">02</span><div class="h-px w-16 bg-gold/40"></div><span class="text-muted text-xs tracking-[0.3em] uppercase" data-i18n="apps.label">WORK</span></div>
       <h2 class="reveal font-display text-4xl md:text-5xl font-bold mb-3" data-i18n="apps.title">تطبيقاتي</h2>
       <p class="reveal text-muted mb-14" data-i18n="apps.subtitle">مختارات من مشاريعي الأخيرة.</p>
       <div id="appsGrid" class="bento"></div>
@@ -125,29 +86,56 @@
   <!-- CONTACT -->
   <section id="contact" class="py-32 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <div class="reveal flex items-center justify-center gap-4 mb-10">
-        <div class="h-px w-16 bg-gold/40"></div>
-        <span class="text-muted text-xs tracking-[0.3em] uppercase" data-i18n="contact.label">CONTACT</span>
-        <div class="h-px w-16 bg-gold/40"></div>
-      </div>
       <h2 class="reveal font-display text-4xl md:text-6xl font-bold mb-4" data-i18n="contact.title">لنعمل معًا</h2>
       <p class="reveal text-muted text-lg mb-10" data-i18n="contact.subtitle">لديك فكرة؟ دعنا نحوّلها إلى واقع.</p>
-      <div class="reveal flex flex-wrap gap-4 justify-center">
-        <a href="mailto:hello@example.com" class="magnetic px-8 py-3.5 bg-gold text-ink rounded-full font-medium hover:bg-goldLight transition shadow-lg shadow-gold/10" data-i18n="contact.email">أرسل بريدًا</a>
-        <a href="https://github.com/" target="_blank" rel="noopener" class="magnetic px-6 py-3.5 border border-white/10 rounded-full text-cream/80 hover:border-gold/50 hover:text-gold transition">GitHub</a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="magnetic px-6 py-3.5 border border-white/10 rounded-full text-cream/80 hover:border-gold/50 hover:text-gold transition">LinkedIn</a>
-      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-white/5 py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted">
-      <p>© <span id="year"></span> Mohammed.</p>
-      <p><span data-i18n="footer.rights">جميع الحقوق محفوظة</span></p>
-    </div>
+  <footer class="border-t border-white/5 py-8 px-6 text-center text-sm text-muted">
+    <p>© <span id="year"></span> Mohammed.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- نافذة تسجيل الدخول -->
+  <div id="loginModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3 class="text-2xl font-display font-bold mb-6 text-gold">تسجيل الدخول للمدير</h3>
+      <form id="loginForm" class="flex flex-col gap-4">
+        <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" class="input-style" required />
+        <input type="password" id="loginPassword" placeholder="كلمة المرور" class="input-style" required />
+        <button type="submit" class="btn-gold mt-2">دخول</button>
+        <p id="loginError" class="text-red-400 text-sm text-center hidden"></p>
+      </form>
+      <button class="close-modal absolute top-4 left-4 text-muted hover:text-cream">✕</button>
+    </div>
+  </div>
+
+  <!-- نافذة إضافة تطبيق -->
+  <div id="addAppModal" class="modal-overlay hidden">
+    <div class="modal-content max-w-lg">
+      <h3 class="text-2xl font-display font-bold mb-6 text-gold">إضافة تطبيق جديد</h3>
+      <form id="addAppForm" class="flex flex-col gap-4">
+        <input type="text" id="appTitleAr" placeholder="اسم التطبيق (عربي)" class="input-style" required />
+        <input type="text" id="appTitleEn" placeholder="اسم التطبيق (إنجليزي)" class="input-style" required />
+        <textarea id="appDescAr" placeholder="الوصف (عربي)" class="input-style" rows="2" required></textarea>
+        <textarea id="appDescEn" placeholder="الوصف (إنجليزي)" class="input-style" rows="2" required></textarea>
+        <input type="url" id="appUrl" placeholder="رابط التطبيق (https://...)" class="input-style" required />
+        <input type="url" id="appImage" placeholder="رابط الصورة (اختياري)" class="input-style" />
+        <select id="appType" class="input-style">
+          <option value="web">ويب</option>
+          <option value="android">أندرويد</option>
+          <option value="desktop">سطح المكتب</option>
+        </select>
+        <button type="submit" class="btn-gold mt-2">نشر التطبيق</button>
+      </form>
+      <button class="close-modal absolute top-4 left-4 text-muted hover:text-cream">✕</button>
+    </div>
+  </div>
+
+  <!-- زر عائم يظهر فقط للمدير -->
+  <button id="fabAdd" class="fab hidden" title="إضافة تطبيق">+</button>
+
+  <!-- تحميل السكريبت كـ module (مهم جداً ليعمل Firebase) -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
