@@ -160,11 +160,11 @@ function updateAuthUI() {
 
   if (isAdmin) {
     authBtn.textContent = t('auth.logout');
-    authBtn.classList.add('border-gold/50', 'text-gold');
+    authBtn.classList.add('border-blue/50', 'text-blue');
     fab.classList.remove('hidden');
   } else {
     authBtn.textContent = t('auth.login');
-    authBtn.classList.remove('border-gold/50', 'text-gold');
+    authBtn.classList.remove('border-blue/50', 'text-blue');
     fab.classList.add('hidden');
   }
 }
